@@ -9,7 +9,7 @@ function App() {
       <nav className="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
         <div className="container mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src="/OpenDPDlogo_new.png" alt="OpenDPD Logo" className="h-8 w-auto" />
+            <img src={`${import.meta.env.BASE_URL}OpenDPDlogo_new.png`} alt="OpenDPD Logo" className="h-8 w-auto" />
             <span className="font-bold text-xl tracking-tight">OpenDPD</span>
           </div>
           <div className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-400">
@@ -149,7 +149,7 @@ function App() {
             </div>
             <div className="flex-1">
               <div className="glass-panel p-2">
-                <img src="/OpenDPDv2.png" alt="OpenDPD Architecture" className="rounded-xl w-full" />
+                <img src={`${import.meta.env.BASE_URL}OpenDPDv2.png`} alt="OpenDPD Architecture" className="rounded-xl w-full" />
               </div>
             </div>
           </div>
@@ -270,7 +270,7 @@ function App() {
       <footer className="py-12 px-6 border-t border-white/10 bg-slate-950">
         <div className="container mx-auto max-w-6xl flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-2 text-slate-400">
-            <img src="/OpenDPDlogo_new.png" alt="Logo" className="h-6 opacity-50" />
+            <img src={`${import.meta.env.BASE_URL}OpenDPDlogo_new.png`} alt="Logo" className="h-6 opacity-50" />
             <span>© 2025 Lab of Efficient Machine Intelligence</span>
           </div>
           <div className="flex gap-6 text-slate-400 text-sm">
