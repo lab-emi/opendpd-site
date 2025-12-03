@@ -92,7 +92,7 @@ function App() {
             <div className="glass-panel p-8">
               <div className="flex items-center gap-3 mb-4">
                 <TrendingUp className="text-green-400" size={24} />
-                <h3 className="text-xl font-bold">OpenDPDv2 Results</h3>
+                <h3 className="text-xl font-bold">OpenDPDv2 Results (APA_200MHz)</h3>
               </div>
               <div className="space-y-4">
                 <MetricItem label="Model" value="TRes-DeltaGRU" />
@@ -104,13 +104,13 @@ function App() {
             <div className="glass-panel p-8">
               <div className="flex items-center gap-3 mb-4">
                 <Zap className="text-amber-400" size={24} />
-                <h3 className="text-xl font-bold">OpenDPDv1 Results</h3>
+                <h3 className="text-xl font-bold">OpenDPDv1 Results (DPA_200MHz)</h3>
               </div>
               <div className="space-y-4">
                 <MetricItem label="Model" value="DGRU" />
-                <MetricItem label="Parameters" value="1,041" />
-                <MetricItem label="ACPR" value="-58.4 dBc" />
-                <MetricItem label="EVM" value="-39.1 dB" />
+                <MetricItem label="Parameters" value="486" />
+                <MetricItem label="ACPR" value="-47.8 dBc" />
+                <MetricItem label="EVM" value="-35.2 dB" />
               </div>
             </div>
           </div>
