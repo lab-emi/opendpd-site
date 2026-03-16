@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, Terminal, BookOpen, Cpu, Zap, Layers, ArrowRight, ExternalLink, Download, Code, Database, TrendingUp, CheckCircle2 } from 'lucide-react';
+import { Github, Terminal, BookOpen, Cpu, Zap, Layers, ArrowRight, ExternalLink, Download, Code, Database, TrendingUp, CheckCircle2, Sparkles, BarChart3, Film, Layout, LineChart } from 'lucide-react';
 
 function App() {
   return (
@@ -13,6 +13,7 @@ function App() {
             <span className="font-bold text-xl tracking-tight">OpenDPD</span>
           </div>
           <div className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-400">
+            <a href="#whats-new" className="hover:text-white transition-colors">What's New</a>
             <a href="#features" className="hover:text-white transition-colors">Features</a>
             <a href="#performance" className="hover:text-white transition-colors">Performance</a>
             <a href="#architecture" className="hover:text-white transition-colors">Architecture</a>
@@ -61,8 +62,95 @@ function App() {
         </div>
       </section>
 
+      {/* What's New in V2.1 */}
+      <section id="whats-new" className="py-24 px-6 bg-slate-900/50">
+        <div className="container mx-auto max-w-6xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <span className="text-xs font-semibold tracking-wider uppercase bg-gradient-to-r from-blue-500 to-purple-500 text-white px-3 py-1 rounded-full">New Release</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">What's New in V2.1</h2>
+            <p className="text-slate-400 text-center mb-12 max-w-2xl mx-auto">
+              A comprehensive visualization system that lets you watch your neural DPD model learn in real time.
+            </p>
+          </motion.div>
+
+          {/* GIF Animation Showcase */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="glass-panel p-2 mb-12"
+          >
+            <img
+              src={`${import.meta.env.BASE_URL}overview_test.gif`}
+              alt="DPD training animation showing PSD, AM/AM, AM/PM, constellation, and waveform evolving across 100 epochs"
+              className="rounded-xl w-full"
+            />
+            <p className="text-center text-slate-400 text-sm mt-3 mb-2">
+              GRU-based DPD learning to linearize a 200 MHz wideband PA over 100 epochs — spectral regrowth is suppressed in real time.
+            </p>
+          </motion.div>
+
+          {/* V2.1 Feature Cards */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            <V21FeatureCard
+              icon={<BarChart3 className="text-blue-400" size={20} />}
+              title="Per-Epoch Plots"
+              description="PSD, AM/AM, AM/PM, constellation, waveform, and error plots generated at every epoch during training."
+            />
+            <V21FeatureCard
+              icon={<Film className="text-purple-400" size={20} />}
+              title="Animated GIFs"
+              description="Smooth GIF animations from training history with configurable duration. Watch your model converge frame by frame."
+            />
+            <V21FeatureCard
+              icon={<Layout className="text-green-400" size={20} />}
+              title="Interactive Dashboard"
+              description="HTML dashboard with epoch slider to scrub through training progress interactively."
+            />
+            <V21FeatureCard
+              icon={<LineChart className="text-amber-400" size={20} />}
+              title="Training Curves"
+              description="Loss, ACLR, EVM, and NMSE convergence curves plotted automatically at the end of training."
+            />
+            <V21FeatureCard
+              icon={<Layers className="text-rose-400" size={20} />}
+              title="Comparison Plots"
+              description="New --step plot command for side-by-side comparison of PA output without DPD vs. with DPD."
+            />
+            <V21FeatureCard
+              icon={<Sparkles className="text-cyan-400" size={20} />}
+              title="OFDM Demodulator"
+              description="Built-in demodulator module for constellation diagram generation with per-dataset signal configurations."
+            />
+          </div>
+
+          {/* Code Example */}
+          <div className="glass-panel p-6 max-w-3xl mx-auto">
+            <div className="flex items-center gap-2 mb-4">
+              <Code size={18} className="text-blue-400" />
+              <span className="text-sm font-semibold text-slate-300">Enable with a single flag</span>
+            </div>
+            <div className="bg-slate-950 rounded-lg p-4 font-mono text-sm text-slate-300 space-y-2">
+              <div><span className="text-slate-500"># CLI</span></div>
+              <div><span className="text-blue-400">$</span> python main.py --step train_dpd --dataset_name DPA_200MHz <span className="text-green-400">--plot</span> --accelerator cuda</div>
+              <div className="mt-4"><span className="text-slate-500"># Python API</span></div>
+              <div><span className="text-purple-400">import</span> opendpd</div>
+              <div>opendpd.train_dpd(dataset_name=<span className="text-amber-400">'DPA_200MHz'</span>, n_epochs=<span className="text-amber-400">100</span>, <span className="text-green-400">plot=True</span>)</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Features Grid */}
-      <section id="features" className="py-20 px-6 bg-slate-900/50">
+      <section id="features" className="py-20 px-6">
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-3 gap-8">
             <FeatureCard
@@ -321,6 +409,18 @@ function MetricItem({ label, value }) {
     <div className="flex justify-between items-center py-2 border-b border-white/5 last:border-0">
       <span className="text-slate-400">{label}</span>
       <span className="font-bold text-white">{value}</span>
+    </div>
+  );
+}
+
+function V21FeatureCard({ icon, title, description }) {
+  return (
+    <div className="glass-panel p-6 hover:bg-white/10 transition-colors duration-300">
+      <div className="flex items-center gap-3 mb-3">
+        <div className="p-2 bg-white/5 rounded-lg">{icon}</div>
+        <h3 className="font-bold">{title}</h3>
+      </div>
+      <p className="text-slate-400 text-sm leading-relaxed">{description}</p>
     </div>
   );
 }
