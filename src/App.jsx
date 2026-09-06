@@ -1,6 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, Terminal, BookOpen, Cpu, Zap, Layers, ArrowRight, ExternalLink, Download, Code, Database, TrendingUp, CheckCircle2, Sparkles, BarChart3, Film, Layout, LineChart } from 'lucide-react';
+import { Github, Terminal, BookOpen, Cpu, Zap, Layers, ArrowRight, ExternalLink, Download, Code, Database, TrendingUp, Sparkles, BarChart3, Film, Layout, LineChart, Rocket, FileText, Quote } from 'lucide-react';
+
+// The documentation site is built from the OpenDPD repository (docs/ + mkdocs.yml) and deployed to GitHub Pages.
+const DOCS_URL = 'https://lab-emi.github.io/OpenDPD/';
+const docsPage = (path) => `${DOCS_URL}${path}`;
 
 function App() {
   return (
@@ -19,6 +23,7 @@ function App() {
             <a href="#architecture" className="hover:text-white transition-colors">Architecture</a>
             <a href="#datasets" className="hover:text-white transition-colors">Datasets</a>
             <a href="#research" className="hover:text-white transition-colors">Research</a>
+            <a href="#docs" className="hover:text-white transition-colors">Docs</a>
             <a href="https://github.com/Lab-EMI/OpenDPD" target="_blank" rel="noopener noreferrer" className="text-white bg-white/10 hover:bg-white/20 px-4 py-2 rounded-full transition-colors flex items-center gap-2">
               <Github size={16} />
               GitHub
@@ -56,6 +61,15 @@ function App() {
               >
                 <Terminal size={18} />
                 Try in Colab
+              </a>
+              <a
+                href={DOCS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+              >
+                <BookOpen size={18} />
+                Read the Docs
               </a>
             </div>
           </motion.div>
@@ -205,6 +219,13 @@ function App() {
           <p className="text-center text-slate-400 text-sm">
             Results on APA_200MHz dataset (GaN Doherty PA @ 3.5 GHz, 41.5 dBm average output power)
           </p>
+          <p className="text-center text-sm mt-4">
+            <a href={docsPage('benchmark/')} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors">
+              <BarChart3 size={16} />
+              Full PA modeling and DPD benchmark: MP, GMP, GRU, TRes-GRU and TRes-DeltaGRU with methodology and evidence
+              <ArrowRight size={14} />
+            </a>
+          </p>
         </div>
       </section>
 
@@ -233,6 +254,15 @@ function App() {
                 <Code size={18} />
                 View Source Code
                 <ArrowRight size={16} />
+              </a>
+              <a
+                href={docsPage('training/')}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-lg font-medium transition-colors ml-0 md:ml-4 mt-4 md:mt-0"
+              >
+                <BookOpen size={18} />
+                Training Guide
               </a>
             </div>
             <div className="flex-1">
@@ -270,6 +300,13 @@ function App() {
               version="OpenDPDv1"
             />
           </div>
+          <p className="text-center text-sm mt-8">
+            <a href={docsPage('datasets/')} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors">
+              <Database size={16} />
+              CSV format, spec.json reference and how to add a PA of your own
+              <ArrowRight size={14} />
+            </a>
+          </p>
         </div>
       </section>
 
@@ -330,6 +367,66 @@ function App() {
         </div>
       </section>
 
+      {/* Documentation Section */}
+      <section id="docs" className="py-24 px-6">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">Documentation</h2>
+          <p className="text-slate-400 text-center mb-12 max-w-2xl mx-auto">
+            Installation, the end-to-end workflow, datasets, the benchmark and the Python API, kept in sync with the repository.
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+            <DocCard
+              icon={<Rocket className="text-blue-400" size={20} />}
+              title="Installation"
+              description="pip install, or the research codebase from source with its environment setup."
+              href={docsPage('install/')}
+            />
+            <DocCard
+              icon={<Layers className="text-purple-400" size={20} />}
+              title="End-to-End Training"
+              description="PA modeling, DPD learning, quantization-aware training and validation, step by step."
+              href={docsPage('training/')}
+            />
+            <DocCard
+              icon={<Database className="text-green-400" size={20} />}
+              title="Datasets"
+              description="The built-in measured datasets, their format, and adding a custom PA."
+              href={docsPage('datasets/')}
+            />
+            <DocCard
+              icon={<BarChart3 className="text-amber-400" size={20} />}
+              title="Benchmark"
+              description="PA modeling and DPD results across model families, with methodology and evidence."
+              href={docsPage('benchmark/')}
+            />
+            <DocCard
+              icon={<FileText className="text-rose-400" size={20} />}
+              title="API Reference"
+              description="train_pa, train_dpd, run_dpd, plot_dpd and the dataset helpers, from the docstrings."
+              href={docsPage('api/')}
+            />
+            <DocCard
+              icon={<Quote className="text-cyan-400" size={20} />}
+              title="About and Citation"
+              description="The papers behind OpenDPD, the measurement setup and the contributors."
+              href={docsPage('about/')}
+            />
+          </div>
+          <div className="text-center">
+            <a
+              href={DOCS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-lg font-medium transition-colors text-lg"
+            >
+              <BookOpen size={20} />
+              Open the Documentation
+              <ExternalLink size={18} />
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Research Section */}
       <section id="research" className="py-24 px-6 bg-slate-900/50">
         <div className="container mx-auto max-w-4xl">
@@ -351,6 +448,13 @@ function App() {
               link="https://ieeexplore.ieee.org/abstract/document/11006082/"
             />
           </div>
+          <p className="text-center text-sm mt-8">
+            <a href={docsPage('about/')} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors">
+              <Quote size={16} />
+              How to cite OpenDPD (BibTeX entries)
+              <ArrowRight size={14} />
+            </a>
+          </p>
         </div>
       </section>
 
@@ -362,6 +466,7 @@ function App() {
             <span>© 2025 Lab of Efficient Machine Intelligence</span>
           </div>
           <div className="flex gap-6 text-slate-400 text-sm">
+            <a href={DOCS_URL} className="hover:text-white transition-colors">Documentation</a>
             <a href="https://github.com/Lab-EMI/OpenDPD" className="hover:text-white transition-colors">GitHub</a>
             <a href="https://www.tudemi.com" className="hover:text-white transition-colors">Lab Website</a>
           </div>
@@ -422,6 +527,23 @@ function V21FeatureCard({ icon, title, description }) {
       </div>
       <p className="text-slate-400 text-sm leading-relaxed">{description}</p>
     </div>
+  );
+}
+
+function DocCard({ icon, title, description, href }) {
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" className="block group">
+      <div className="glass-panel p-6 h-full group-hover:bg-white/10 group-hover:border-blue-500/30 transition-all">
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center gap-3">
+            <div className="p-2 bg-white/5 rounded-lg">{icon}</div>
+            <h3 className="font-bold group-hover:text-blue-400 transition-colors">{title}</h3>
+          </div>
+          <ExternalLink size={16} className="text-slate-500 group-hover:text-blue-400 transition-colors" />
+        </div>
+        <p className="text-slate-400 text-sm leading-relaxed">{description}</p>
+      </div>
+    </a>
   );
 }
 

@@ -112,6 +112,7 @@ For detailed deployment instructions, see:
 
 ## Links
 
+- **Documentation**: [https://lab-emi.github.io/OpenDPD/](https://lab-emi.github.io/OpenDPD/) (built from the OpenDPD repository's `docs/`)
 - **OpenDPD GitHub**: [https://github.com/Lab-EMI/OpenDPD](https://github.com/Lab-EMI/OpenDPD)
 - **Lab Website**: [https://www.tudemi.com](https://www.tudemi.com)
 - **Colab Tutorial**: [Google Colab Notebook](https://colab.research.google.com/drive/1o5X8hztWyMKaMhPs2gUf2fZABCq2nUjn?usp=sharing)
