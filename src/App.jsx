@@ -41,12 +41,13 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
               End-to-End Learning for <br />
-              <span className="text-gradient">Power Amplifiers</span>
+              <span className="text-gradient">Linearizing Analog &amp; RF Circuits</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-              An open-source PyTorch framework for modeling power amplifiers and digital pre-distortion.
+              An open-source PyTorch framework for modeling nonlinear analog and RF circuits and learning the
+              digital pre-distortion that linearizes them, benchmarked on measured wideband power amplifiers.
               Built for researchers, by researchers.
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-4">

@@ -1,6 +1,6 @@
 # OpenDPD Website
 
-A modern, responsive landing page for the OpenDPD project - an open-source end-to-end learning framework built in PyTorch for modeling power amplifiers (PA) and digital pre-distortion (DPD).
+A modern, responsive landing page for the OpenDPD project - an open-source end-to-end learning framework built in PyTorch for modeling nonlinear analog and RF circuits and learning the digital pre-distortion (DPD) that linearizes them, benchmarked on measured power amplifiers (PA).
 
 ## Overview
 
