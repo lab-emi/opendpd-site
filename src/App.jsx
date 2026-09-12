@@ -54,6 +54,10 @@ function App() {
               <div className="flex items-center gap-2 bg-slate-900 border border-slate-800 rounded-lg px-4 py-3 font-mono text-sm text-slate-300">
                 <span className="text-blue-400">$</span> pip install opendpd
               </div>
+              <a href="/studio/" className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+                <Layout size={18} />
+                Open Studio
+              </a>
               <a
                 href="https://colab.research.google.com/drive/1o5X8hztWyMKaMhPs2gUf2fZABCq2nUjn?usp=sharing"
                 target="_blank"

@@ -4,6 +4,11 @@ on:
   push:
     branches: ["main"]
   workflow_dispatch:
+    inputs:
+      studio_ref:
+        description: 'OpenDPD commit or tag to publish under /studio/'
+        required: false
+        type: string
 
 # 必须加上这些权限，否则 403 报错
 permissions:
@@ -25,7 +30,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           cache: 'npm'
 
       - name: Install dependencies
@@ -33,6 +38,27 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Checkout the reviewed Studio source
+        uses: actions/checkout@v4
+        with:
+          repository: lab-emi/OpenDPD
+          ref: ${{ inputs.studio_ref || vars.STUDIO_REF || '2ad281d083a9f89ffd57ef6cd4661feb9d05a96a' }}
+          path: .studio-source
+
+      - name: Build the public Studio
+        working-directory: .studio-source/frontend
+        env:
+          VITE_STUDIO_MODE: web
+          VITE_API_ORIGIN: https://api.opendpd.com
+          VITE_BASE_PATH: ./
+        run: npm ci && npm run build
+
+      - name: Include Studio without replacing the landing page
+        run: |
+          mkdir -p dist/studio
+          cp -a .studio-source/frontend/dist/. dist/studio/
+          touch dist/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
