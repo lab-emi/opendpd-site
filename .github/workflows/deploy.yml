@@ -43,7 +43,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: lab-emi/OpenDPD
-          ref: ${{ inputs.studio_ref || vars.STUDIO_REF || '290e1d4603727d59f417ff4dc773a54c42065a84' }}
+          ref: ${{ inputs.studio_ref || vars.STUDIO_REF || '8ed82b8321472e76aaea0ac297b0e010a2ba503d' }}
           path: .studio-source
 
       - name: Build the public Studio
