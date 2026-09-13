@@ -44,14 +44,14 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <p className="mb-5 text-sm font-semibold tracking-wide text-cyan-300">OpenDPD 2.2.3 · Available in your browser</p>
+            <p className="mb-5 text-sm font-semibold tracking-wide text-cyan-300">OpenDPD 2.2.4 · Available in your browser</p>
             <img src={`${import.meta.env.BASE_URL}opendpd-studio-logo-inverse.svg`} alt="OpenDPD Studio" className="mx-auto mb-8 w-full max-w-lg" />
             <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
               Train a digital predistorter.<br />
               <span className="text-gradient">See it learn. In your browser.</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Generate a signal, explore existing datasets or bring your own CSV. Model a power amplifier, train DPD on shared CUDA compute,
+              Generate PA input and simulate a Virtual PA, explore existing paired datasets or bring your own CSV. Model a power amplifier, train DPD on shared CUDA compute,
               inspect live plots and download your model. No installation needed to try OpenDPD Studio.
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-4">
@@ -88,7 +88,7 @@ function App() {
         </div>
       </section>
 
-      {/* OpenDPD 2.2.3 */}
+      {/* OpenDPD 2.2.4 */}
       <section id="whats-new" className="py-24 px-6 bg-slate-900/50">
         <div className="container mx-auto max-w-6xl">
           <Motion.div
@@ -100,10 +100,12 @@ function App() {
             <div className="flex items-center justify-center gap-3 mb-4">
               <span className="text-xs font-semibold tracking-wider uppercase bg-gradient-to-r from-blue-500 to-purple-500 text-white px-3 py-1 rounded-full">New Release</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">OpenDPD 2.2.3: generate a signal, train a model</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">OpenDPD 2.2.4: follow every signal in the chain</h2>
             <p className="text-slate-400 text-center mb-12 max-w-2xl mx-auto">
-              Start with 20 signal presets, inspect I/Q, spectrum, constellation and PAPR, then create a clearly labelled synthetic PA dataset.
-              PA Model and DPD Model now combine training and testing, with exact test-set sample counts. Standard presets are uncoded engineering stimuli; Wi-Fi 8 is experimental.
+              See DPD Input, DPD Output / PA Input and PA Output in separate PSD charts with clear legends.
+              Generate PA input, choose from nine mathematical Virtual PAs and explicitly simulate output before creating a paired synthetic dataset.
+              Download input CSV and JSON metadata independently, and follow the expandable workflow through PA and DPD training and testing.
+              Virtual PAs are behavioral simulations; signal presets are uncoded engineering stimuli and Wi-Fi 8 is experimental.
             </p>
           </Motion.div>
 
