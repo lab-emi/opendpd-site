@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { Github, Terminal, BookOpen, Cpu, Zap, Layers, ArrowRight, ExternalLink, Download, Code, Database, TrendingUp, Sparkles, BarChart3, Film, Layout, LineChart, Rocket, FileText, Quote } from 'lucide-react';
 
 // The documentation site is built from the OpenDPD repository (docs/ + mkdocs.yml) and deployed to GitHub Pages.
@@ -39,19 +39,19 @@ function App() {
       <section className="pt-32 pb-20 px-6 relative overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-blue-500/20 rounded-full blur-[120px] -z-10" />
         <div className="container mx-auto max-w-5xl text-center">
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <p className="mb-5 text-sm font-semibold tracking-wide text-cyan-300">OpenDPD 2.2.2 · Available in your browser</p>
+            <p className="mb-5 text-sm font-semibold tracking-wide text-cyan-300">OpenDPD 2.2.3 · Available in your browser</p>
             <img src={`${import.meta.env.BASE_URL}opendpd-studio-logo-inverse.svg`} alt="OpenDPD Studio" className="mx-auto mb-8 w-full max-w-lg" />
             <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
               Train a digital predistorter.<br />
               <span className="text-gradient">See it learn. In your browser.</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Explore built-in examples or bring your own CSV. Model a power amplifier, train DPD on shared CUDA compute,
+              Generate a signal, explore existing datasets or bring your own CSV. Model a power amplifier, train DPD on shared CUDA compute,
               inspect live plots and download your model. No installation needed to try OpenDPD Studio.
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-4">
@@ -84,14 +84,14 @@ function App() {
               <span className="flex items-center justify-between px-4 py-4 font-semibold text-cyan-200">Open the interactive Studio <ArrowRight size={20} /></span>
             </a>
             <p className="mt-7 text-sm text-slate-400">Prefer to run locally? <code className="ml-1 rounded-md bg-slate-900 px-3 py-2 text-slate-200">pip install "opendpd[gui]"</code></p>
-          </motion.div>
+          </Motion.div>
         </div>
       </section>
 
-      {/* OpenDPD 2.2.2 */}
+      {/* OpenDPD 2.2.3 */}
       <section id="whats-new" className="py-24 px-6 bg-slate-900/50">
         <div className="container mx-auto max-w-6xl">
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -100,15 +100,15 @@ function App() {
             <div className="flex items-center justify-center gap-3 mb-4">
               <span className="text-xs font-semibold tracking-wider uppercase bg-gradient-to-r from-blue-500 to-purple-500 text-white px-3 py-1 rounded-full">New Release</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">OpenDPD 2.2.2: report bugs from Studio</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">OpenDPD 2.2.3: generate a signal, train a model</h2>
             <p className="text-slate-400 text-center mb-12 max-w-2xl mx-auto">
-              Report problems from the top of Studio, with a description box ready for typing and a prefilled GitHub issue.
-              Fast CUDA training, 10/150-epoch presets, validated CSV uploads, and model downloads remain available.
+              Start with 20 signal presets, inspect I/Q, spectrum, constellation and PAPR, then create a clearly labelled synthetic PA dataset.
+              PA Model and DPD Model now combine training and testing, with exact test-set sample counts. Standard presets are uncoded engineering stimuli; Wi-Fi 8 is experimental.
             </p>
-          </motion.div>
+          </Motion.div>
 
           {/* GIF Animation Showcase */}
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -123,7 +123,7 @@ function App() {
             <p className="text-center text-slate-400 text-sm mt-3 mb-2">
               GRU-based DPD learning to linearize a 200 MHz wideband PA over 100 epochs — spectral regrowth is suppressed in real time.
             </p>
-          </motion.div>
+          </Motion.div>
 
           {/* V2.1 Feature Cards */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
