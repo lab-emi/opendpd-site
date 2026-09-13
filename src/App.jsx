@@ -44,7 +44,7 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <p className="mb-5 text-sm font-semibold tracking-wide text-cyan-300">OpenDPD 2.2.0 · Available in your browser</p>
+            <p className="mb-5 text-sm font-semibold tracking-wide text-cyan-300">OpenDPD 2.2.1 · Available in your browser</p>
             <img src={`${import.meta.env.BASE_URL}opendpd-studio-logo-inverse.svg`} alt="OpenDPD Studio" className="mx-auto mb-8 w-full max-w-lg" />
             <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
               Train a digital predistorter.<br />
@@ -88,7 +88,7 @@ function App() {
         </div>
       </section>
 
-      {/* OpenDPD 2.2.0 */}
+      {/* OpenDPD 2.2.1 */}
       <section id="whats-new" className="py-24 px-6 bg-slate-900/50">
         <div className="container mx-auto max-w-6xl">
           <motion.div
@@ -100,10 +100,10 @@ function App() {
             <div className="flex items-center justify-center gap-3 mb-4">
               <span className="text-xs font-semibold tracking-wider uppercase bg-gradient-to-r from-blue-500 to-purple-500 text-white px-3 py-1 rounded-full">New Release</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">OpenDPD 2.2.0: meet Studio</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">OpenDPD 2.2.1: faster Studio training</h2>
             <p className="text-slate-400 text-center mb-12 max-w-2xl mx-auto">
-              A guided workbench with validated CSV uploads, clear epoch and batch progress, live model downloads,
-              and interactive signal plots — powered by the original OpenDPD training core.
+              Faster CUDA training, a 10-epoch quick trial, and a 150-epoch full run.
+              Live plots update once per epoch by default, with validated CSV uploads and model downloads throughout training.
             </p>
           </motion.div>
 
