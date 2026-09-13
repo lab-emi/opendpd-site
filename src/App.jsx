@@ -16,7 +16,7 @@ function App() {
             <img src={`${import.meta.env.BASE_URL}OpenDPDlogo_new.png`} alt="OpenDPD Logo" className="h-8 w-auto" />
             <span className="font-bold text-xl tracking-tight">OpenDPD</span>
           </div>
-          <div className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-400">
+          <div className="hidden xl:flex items-center gap-6 text-sm font-medium text-slate-400">
             <a href="#whats-new" className="hover:text-white transition-colors">What's New</a>
             <a href="#features" className="hover:text-white transition-colors">Features</a>
             <a href="#performance" className="hover:text-white transition-colors">Performance</a>
@@ -29,6 +29,9 @@ function App() {
               GitHub
             </a>
           </div>
+          <a href="/studio/" className="shrink-0 inline-flex items-center gap-2 rounded-full bg-cyan-300 px-4 py-3 text-sm font-bold text-slate-950 hover:bg-cyan-200 transition-colors">
+            Try Studio <ArrowRight size={16} />
+          </a>
         </div>
       </nav>
 
@@ -41,28 +44,26 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
+            <p className="mb-5 text-sm font-semibold tracking-wide text-cyan-300">OpenDPD 2.2.0 · Available in your browser</p>
+            <img src={`${import.meta.env.BASE_URL}opendpd-studio-logo-inverse.svg`} alt="OpenDPD Studio" className="mx-auto mb-8 w-full max-w-lg" />
             <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
-              End-to-End Learning for <br />
-              <span className="text-gradient">Linearizing Analog &amp; RF Circuits</span>
+              Train a digital predistorter.<br />
+              <span className="text-gradient">See it learn. In your browser.</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-              An open-source PyTorch framework for modeling nonlinear analog and RF circuits and learning the
-              digital pre-distortion that linearizes them, benchmarked on measured wideband power amplifiers.
-              Built for researchers, by researchers.
+              Explore built-in examples or bring your own CSV. Model a power amplifier, train DPD on shared CUDA compute,
+              inspect live plots and download your model. No installation needed to try OpenDPD Studio.
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-              <div className="flex items-center gap-2 bg-slate-900 border border-slate-800 rounded-lg px-4 py-3 font-mono text-sm text-slate-300">
-                <span className="text-blue-400">$</span> pip install opendpd
-              </div>
-              <a href="/studio/" className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+              <a href="/studio/" className="flex items-center gap-3 bg-cyan-300 hover:bg-cyan-200 text-slate-950 px-8 py-4 rounded-xl text-lg font-bold transition-colors shadow-lg shadow-cyan-900/30">
                 <Layout size={18} />
-                Open Studio
+                Try OpenDPD Studio <ArrowRight size={20} />
               </a>
               <a
                 href="https://colab.research.google.com/drive/1o5X8hztWyMKaMhPs2gUf2fZABCq2nUjn?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-lg font-medium transition-colors"
               >
                 <Terminal size={18} />
                 Try in Colab
@@ -77,11 +78,17 @@ function App() {
                 Read the Docs
               </a>
             </div>
+            <p className="mt-5 text-sm text-slate-400">Temporary workspaces · Files deleted within 24 hours · Download results to keep them</p>
+            <a href="/studio/" className="mt-10 block overflow-hidden rounded-2xl border border-white/15 bg-slate-900 p-2 text-left shadow-2xl transition-colors hover:border-cyan-300/70 focus-visible:outline focus-visible:outline-4 focus-visible:outline-cyan-300" aria-label="Try OpenDPD Studio from this screenshot">
+              <img src={`${import.meta.env.BASE_URL}studio-home.png`} alt="OpenDPD Studio home — click to open the web app" className="w-full rounded-xl" />
+              <span className="flex items-center justify-between px-4 py-4 font-semibold text-cyan-200">Open the interactive Studio <ArrowRight size={20} /></span>
+            </a>
+            <p className="mt-7 text-sm text-slate-400">Prefer to run locally? <code className="ml-1 rounded-md bg-slate-900 px-3 py-2 text-slate-200">pip install "opendpd[gui]"</code></p>
           </motion.div>
         </div>
       </section>
 
-      {/* What's New in V2.1 */}
+      {/* OpenDPD 2.2.0 */}
       <section id="whats-new" className="py-24 px-6 bg-slate-900/50">
         <div className="container mx-auto max-w-6xl">
           <motion.div
@@ -93,9 +100,10 @@ function App() {
             <div className="flex items-center justify-center gap-3 mb-4">
               <span className="text-xs font-semibold tracking-wider uppercase bg-gradient-to-r from-blue-500 to-purple-500 text-white px-3 py-1 rounded-full">New Release</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">What's New in V2.1</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">OpenDPD 2.2.0: meet Studio</h2>
             <p className="text-slate-400 text-center mb-12 max-w-2xl mx-auto">
-              A comprehensive visualization system that lets you watch your neural DPD model learn in real time.
+              A guided workbench with validated CSV uploads, clear epoch and batch progress, live model downloads,
+              and interactive signal plots — powered by the original OpenDPD training core.
             </p>
           </motion.div>
 
@@ -157,7 +165,7 @@ function App() {
               <Code size={18} className="text-blue-400" />
               <span className="text-sm font-semibold text-slate-300">Enable with a single flag</span>
             </div>
-            <div className="bg-slate-950 rounded-lg p-4 font-mono text-sm text-slate-300 space-y-2">
+            <div className="bg-slate-950 rounded-lg p-4 font-mono text-sm text-slate-300 space-y-2 break-words">
               <div><span className="text-slate-500"># CLI</span></div>
               <div><span className="text-blue-400">$</span> python main.py --step train_dpd --dataset_name DPA_200MHz <span className="text-green-400">--plot</span> --accelerator cuda</div>
               <div className="mt-4"><span className="text-slate-500"># Python API</span></div>
