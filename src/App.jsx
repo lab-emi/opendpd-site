@@ -44,14 +44,14 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <p className="mb-5 text-sm font-semibold tracking-wide text-cyan-300">OpenDPD 2.2.8 · Available in your browser</p>
+            <p className="mb-5 text-sm font-semibold tracking-wide text-cyan-300">OpenDPD 2.2.9 · Available in your browser</p>
             <img src={`${import.meta.env.BASE_URL}opendpd-studio-logo-inverse.svg`} alt="OpenDPD Studio" className="mx-auto mb-8 w-full max-w-lg" />
             <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
               Train a digital predistorter.<br />
               <span className="text-gradient">See it learn. In your browser.</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Generate PA input and simulate a Virtual PA, explore existing paired datasets or bring your own CSV. Model a power amplifier, train DPD on shared CUDA compute,
+              Generate PA input, inspect real or complex signals in Signal Analyzer, and simulate a Virtual PA. Explore paired datasets, model a power amplifier and train DPD on shared CUDA compute,
               inspect live plots and download your model. No installation needed to try OpenDPD Studio.
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-4">
@@ -80,15 +80,15 @@ function App() {
             </div>
             <p className="mt-5 text-sm text-slate-400">Trial workspaces · Cleared after 2 hours of IP inactivity · Download results to keep them</p>
             <a href="/studio/" className="mt-10 block overflow-hidden rounded-2xl border border-white/15 bg-slate-900 p-2 text-left shadow-2xl transition-colors hover:border-cyan-300/70 focus-visible:outline focus-visible:outline-4 focus-visible:outline-cyan-300" aria-label="Try OpenDPD Studio from this screenshot">
-              <img src={`${import.meta.env.BASE_URL}studio-home.png`} alt="OpenDPD Studio home — click to open the web app" className="w-full rounded-xl" />
+              <img src={`${import.meta.env.BASE_URL}studio-signal-analyzer.png`} alt="OpenDPD Studio Signal Analyzer — click to open the web app" className="w-full rounded-xl" />
               <span className="flex items-center justify-between px-4 py-4 font-semibold text-cyan-200">Open the interactive Studio <ArrowRight size={20} /></span>
             </a>
-            <p className="mt-7 text-sm text-slate-400">Prefer to run locally? <code className="ml-1 rounded-md bg-slate-900 px-3 py-2 text-slate-200">uv pip install "opendpd==2.2.8" --torch-backend=auto</code></p>
+            <p className="mt-7 text-sm text-slate-400">Prefer to run locally? <code className="ml-1 rounded-md bg-slate-900 px-3 py-2 text-slate-200">uv pip install "opendpd==2.2.9" --torch-backend=auto</code></p>
           </Motion.div>
         </div>
       </section>
 
-      {/* OpenDPD 2.2.8 */}
+      {/* OpenDPD 2.2.9 */}
       <section id="whats-new" className="py-24 px-6 bg-slate-900/50">
         <div className="container mx-auto max-w-6xl">
           <Motion.div
@@ -100,11 +100,11 @@ function App() {
             <div className="flex items-center justify-center gap-3 mb-4">
               <span className="text-xs font-semibold tracking-wider uppercase bg-gradient-to-r from-blue-500 to-purple-500 text-white px-3 py-1 rounded-full">New Release</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">OpenDPD 2.2.8: a lighter Studio</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">OpenDPD 2.2.9: generate, inspect, then train</h2>
             <p className="text-slate-400 text-center mb-12 max-w-2xl mx-auto">
-              Pages load on demand and idle views make fewer requests, while 256 workspaces share a bounded compute queue.
-              During the trial, 2 hours without user activity clears that IP’s temporary workspaces; background refreshes and running jobs do not extend this period.
-              The top bar shows the earlier of inactivity expiry and the scheduled 12-hour cleanup.
+              Analyze your own real or complex CSV with independent spectra, spectrograms, time traces, CCDF and eye views.
+              Create repeatable PSK, FSK/GFSK, OFDM and burst signals, then carry the same samples into Virtual PA simulation and modeling.
+              NR and WLAN presets are uncoded engineering signals; Wi-Fi 8 remains experimental.
             </p>
           </Motion.div>
 
