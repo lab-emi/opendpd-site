@@ -44,14 +44,14 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <p className="mb-5 text-sm font-semibold tracking-wide text-cyan-300">OpenDPD 2.2.10 · Available in your browser</p>
+            <p className="mb-5 text-sm font-semibold tracking-wide text-cyan-300">OpenDPD 2.2.11 · Available in your browser</p>
             <img src={`${import.meta.env.BASE_URL}opendpd-studio-logo-inverse.svg`} alt="OpenDPD Studio" className="mx-auto mb-8 w-full max-w-lg" />
             <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
               Train a digital predistorter.<br />
               <span className="text-gradient">See it learn. In your browser.</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Generate PA input, inspect real or complex signals in Signal Analyzer, and simulate a Virtual PA. Explore paired datasets, model a power amplifier and train DPD on shared CUDA compute,
+              Choose signal presets, inspect real or complex signals, and simulate a Virtual PA to create a training dataset. Model a power amplifier and train DPD on shared CUDA compute,
               inspect live plots and download your model. No installation needed to try OpenDPD Studio.
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-4">
@@ -80,15 +80,15 @@ function App() {
             </div>
             <p className="mt-5 text-sm text-slate-400">Trial workspaces · Cleared after 2 hours of IP inactivity · Download results to keep them</p>
             <a href="/studio/" className="mt-10 block overflow-hidden rounded-2xl border border-white/15 bg-slate-900 p-2 text-left shadow-2xl transition-colors hover:border-cyan-300/70 focus-visible:outline focus-visible:outline-4 focus-visible:outline-cyan-300" aria-label="Try OpenDPD Studio from this screenshot">
-              <img src={`${import.meta.env.BASE_URL}studio-signal-analyzer.png`} alt="OpenDPD Studio Signal Analyzer — click to open the web app" className="w-full rounded-xl" />
+              <img src={`${import.meta.env.BASE_URL}studio-signal-generator.png`} alt="OpenDPD Studio preset matrices — compare bandwidth, QAM and channel count" className="w-full rounded-xl" />
               <span className="flex items-center justify-between px-4 py-4 font-semibold text-cyan-200">Open the interactive Studio <ArrowRight size={20} /></span>
             </a>
-            <p className="mt-7 text-sm text-slate-400">Prefer to run locally? <code className="ml-1 rounded-md bg-slate-900 px-3 py-2 text-slate-200">uv pip install "opendpd==2.2.10" --torch-backend=auto</code></p>
+            <p className="mt-7 text-sm text-slate-400">Prefer to run locally? <code className="ml-1 rounded-md bg-slate-900 px-3 py-2 text-slate-200">uv pip install "opendpd==2.2.11" --torch-backend=auto</code></p>
           </Motion.div>
         </div>
       </section>
 
-      {/* OpenDPD 2.2.10 */}
+      {/* OpenDPD 2.2.11 */}
       <section id="whats-new" className="py-24 px-6 bg-slate-900/50">
         <div className="container mx-auto max-w-6xl">
           <Motion.div
@@ -100,11 +100,11 @@ function App() {
             <div className="flex items-center justify-center gap-3 mb-4">
               <span className="text-xs font-semibold tracking-wider uppercase bg-gradient-to-r from-blue-500 to-purple-500 text-white px-3 py-1 rounded-full">New Release</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">OpenDPD 2.2.10: a more reliable Studio</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">OpenDPD 2.2.11: from signal presets to training data</h2>
             <p className="text-slate-400 text-center mb-12 max-w-2xl mx-auto">
-              Faster dataset browsing, responsive uploads and clearer failure recovery keep your experiments moving.
-              This maintenance release strengthens hosted isolation, download validation and release checks while preserving
-              the signal generation, CSV analysis, Virtual PA and neural modeling workflow.
+              Explore 1,186 NR, Wi-Fi 6/7 and custom engineering presets in compact bandwidth × QAM matrices.
+              Select several signals, simulate a Virtual PA and open the finished dataset automatically.
+              Inspect each capture and download its CSV, or a ZIP with all captures and a standalone PA replay script.
             </p>
           </Motion.div>
 
@@ -130,18 +130,18 @@ function App() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             <V21FeatureCard
               icon={<BarChart3 className="text-blue-400" size={20} />}
-              title="256 Workspaces"
-              description="Sixteen times the previous workspace capacity. Idle visitors share a lightweight scheduler while resource limits protect the server."
+              title="Signal Preset Matrices"
+              description="Compare bandwidth, QAM and OFDMA channel counts at a glance. Select up to 16 presets with independent sample rates and capture lengths."
             />
             <V21FeatureCard
               icon={<Film className="text-purple-400" size={20} />}
-              title="Automatic Waiting Room"
-              description="See your position and enter automatically when a slot opens. Refreshing the same tab preserves your waiting ticket."
+              title="Automatic PA Datasets"
+              description="Simulate a Virtual PA and go straight to dataset details. Each capture retains its own input, output, metadata and train/validation/test split."
             />
             <V21FeatureCard
               icon={<Layout className="text-green-400" size={20} />}
-              title="12-Hour Cleanup"
-              description="A precise UTC deadline tells you when data will be cleared. End your workspace early to free its slot after downloading results."
+              title="Portable Capture Exports"
+              description="Download one CSV or a multi-preset ZIP with JSON metadata and parameterized Python equations to replay the PA simulation independently."
             />
             <V21FeatureCard
               icon={<LineChart className="text-amber-400" size={20} />}
