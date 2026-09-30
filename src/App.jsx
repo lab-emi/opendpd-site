@@ -44,15 +44,14 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <p className="mb-5 text-sm font-semibold tracking-wide text-cyan-300">OpenDPD 2.2.16 · Available in your browser</p>
+            <p className="mb-5 text-sm font-semibold tracking-wide text-cyan-300">OpenDPD 2.3.0 · Available in your browser</p>
             <img src={`${import.meta.env.BASE_URL}opendpd-studio-logo-inverse.svg`} alt="OpenDPD Studio" className="mx-auto mb-8 w-full max-w-lg" />
             <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
               Train a digital predistorter.<br />
               <span className="text-gradient">See it learn. In your browser.</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Choose signal presets, inspect real or complex signals, and simulate a Virtual PA to create a training dataset. Model a power amplifier and train DPD on shared CUDA compute,
-              inspect live plots and download your model. No installation needed to try OpenDPD Studio.
+              Explore DPD Arena on APA_200MHz_b. Compare EVM, output ACLR and model cost across 23 DPD entries, or model a power amplifier and train your own DPD in Studio.
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-4">
               <a href="/studio/" className="flex items-center gap-3 bg-cyan-300 hover:bg-cyan-200 text-slate-950 px-8 py-4 rounded-xl text-lg font-bold transition-colors shadow-lg shadow-cyan-900/30">
@@ -80,15 +79,15 @@ function App() {
             </div>
             <p className="mt-5 text-sm text-slate-400">Trial workspaces · Cleared after 2 hours of IP inactivity · Download results to keep them</p>
             <a href="/studio/" className="mt-10 block overflow-hidden rounded-2xl border border-white/15 bg-slate-900 p-2 text-left shadow-2xl transition-colors hover:border-cyan-300/70 focus-visible:outline focus-visible:outline-4 focus-visible:outline-cyan-300" aria-label="Try OpenDPD Studio from this screenshot">
-              <img src={`${import.meta.env.BASE_URL}studio-signal-generator.png`} alt="OpenDPD Studio preset matrices — compare bandwidth, QAM and channel count" className="w-full rounded-xl" />
+              <img src={`${import.meta.env.BASE_URL}studio-arena.png`} alt="OpenDPD 2.3 DPD Arena — APA_200MHz_b configuration rankings" className="w-full rounded-xl" />
               <span className="flex items-center justify-between px-4 py-4 font-semibold text-cyan-200">Open the interactive Studio <ArrowRight size={20} /></span>
             </a>
-            <p className="mt-7 text-sm text-slate-400">Prefer to run locally? <code className="ml-1 rounded-md bg-slate-900 px-3 py-2 text-slate-200">uv pip install "opendpd==2.2.16" --torch-backend=auto</code></p>
+            <p className="mt-7 text-sm text-slate-400">Prefer to run locally? <code className="ml-1 rounded-md bg-slate-900 px-3 py-2 text-slate-200">uv pip install "opendpd==2.3.0" --torch-backend=auto</code></p>
           </Motion.div>
         </div>
       </section>
 
-      {/* OpenDPD 2.2.16 */}
+      {/* OpenDPD 2.3.0 */}
       <section id="whats-new" className="py-24 px-6 bg-slate-900/50">
         <div className="container mx-auto max-w-6xl">
           <Motion.div
@@ -100,11 +99,9 @@ function App() {
             <div className="flex items-center justify-center gap-3 mb-4">
               <span className="text-xs font-semibold tracking-wider uppercase bg-gradient-to-r from-blue-500 to-purple-500 text-white px-3 py-1 rounded-full">New Release</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">OpenDPD 2.2.16: named datasets and clearer workflows</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">OpenDPD 2.3.0: DPD Arena</h2>
             <p className="text-slate-400 text-center mb-12 max-w-2xl mx-auto">
-              Generate and preview signals in separate pages, name your input/output datasets, and select dataset members in Analyzer.
-              Clearer plots, searchable collections and a prominent training action guide the next step.
-              TRes-GRU, batch size 16 and valid-sample ACLR remain the defaults.
+              One measured dataset. One frozen TRes-GRU PA. Compare 83 configurations using held-out test quality and the cost of deploying each model. Four Pareto plots make the tradeoffs visible.
             </p>
           </Motion.div>
 
@@ -117,12 +114,12 @@ function App() {
             className="glass-panel p-2 mb-12"
           >
             <img
-              src={`${import.meta.env.BASE_URL}overview_test.gif`}
-              alt="DPD training animation showing PSD, AM/AM, AM/PM, constellation, and waveform evolving across 100 epochs"
+              src={`${import.meta.env.BASE_URL}studio-arena-pareto.png`}
+              alt="APA_200MHz_b EVM and ACLR versus parameters and arithmetic operations, with Pareto fronts"
               className="rounded-xl w-full"
             />
             <p className="text-center text-slate-400 text-sm mt-3 mb-2">
-              GRU-based DPD learning to linearize a 200 MHz wideband PA over 100 epochs — spectral regrowth is suppressed in real time.
+              APA_200MHz_b test results through one frozen PA model. Diamonds mark each quality–complexity Pareto front.
             </p>
           </Motion.div>
 
@@ -130,18 +127,18 @@ function App() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             <V21FeatureCard
               icon={<BarChart3 className="text-blue-400" size={20} />}
-              title="Signal Preset Matrices"
-              description="Compare bandwidth, QAM and OFDMA channel counts at a glance. Select up to 16 presets with independent sample rates and capture lengths."
+              title="APA_200MHz_b Rankings"
+              description="23 DPD entries and 233 test cases on the same 200 MHz measured capture, with a full parameter sweep and test-only scores."
             />
             <V21FeatureCard
               icon={<Film className="text-purple-400" size={20} />}
-              title="Automatic PA Datasets"
-              description="Simulate a Virtual PA and go straight to dataset details. Each capture retains its own input, output, metadata and train/validation/test split."
+              title="Quality and Cost"
+              description="Compare EVM and output ACLR with parameters and arithmetic operations. The same FoM rewards smaller models at equal linearization."
             />
             <V21FeatureCard
               icon={<Layout className="text-green-400" size={20} />}
-              title="Portable Capture Exports"
-              description="Download one CSV or a multi-preset ZIP with JSON metadata and parameterized Python equations to replay the PA simulation independently."
+              title="Four Pareto Fronts"
+              description="Explore EVM and ACLR versus parameter count and operations, with highlighted Pareto fronts and seed error bars."
             />
             <V21FeatureCard
               icon={<LineChart className="text-amber-400" size={20} />}
@@ -158,6 +155,12 @@ function App() {
               title="OFDM Demodulator"
               description="Built-in demodulator module for constellation diagram generation with per-dataset signal configurations."
             />
+          </div>
+
+          <div className="mb-12 flex flex-col items-center gap-4 text-center">
+            <a href="/studio/#/arena" className="inline-flex items-center gap-2 rounded-xl bg-cyan-300 px-7 py-4 font-bold text-slate-950 hover:bg-cyan-200">Explore DPD Arena <ArrowRight size={20} /></a>
+            <p className="max-w-2xl text-sm text-slate-400">The PA and DPD inputs are measured capture samples. DPD cascade results are frozen-model predictions, not new hardware measurements.</p>
+            <a href={docsPage('performance/arena-reference-results/')} className="text-cyan-300 underline underline-offset-4">Read the complete results and audit</a>
           </div>
 
           {/* Code Example */}
