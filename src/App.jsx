@@ -44,7 +44,7 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <p className="mb-5 text-sm font-semibold tracking-wide text-cyan-300">OpenDPD 2.4.1 · Available in your browser</p>
+            <p className="mb-5 text-sm font-semibold tracking-wide text-cyan-300">OpenDPD 2.4.2 · Available in your browser</p>
             <img src={`${import.meta.env.BASE_URL}opendpd-studio-logo-inverse.svg`} alt="OpenDPD Studio" className="mx-auto mb-8 w-full max-w-lg" />
             <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
               Train a digital predistorter.<br />
@@ -82,12 +82,12 @@ function App() {
               <img src={`${import.meta.env.BASE_URL}studio-arena.png`} alt="OpenDPD DPD Arena — APA_200MHz_b configuration rankings" className="w-full rounded-xl" />
               <span className="flex items-center justify-between px-4 py-4 font-semibold text-cyan-200">Open the interactive Studio <ArrowRight size={20} /></span>
             </a>
-            <p className="mt-7 text-sm text-slate-400">Prefer to run locally? <code className="ml-1 rounded-md bg-slate-900 px-3 py-2 text-slate-200">uv pip install "opendpd==2.4.1" --torch-backend=auto</code></p>
+            <p className="mt-7 text-sm text-slate-400">Prefer to run locally? <code className="ml-1 rounded-md bg-slate-900 px-3 py-2 text-slate-200">uv pip install "opendpd==2.4.2" --torch-backend=auto</code></p>
           </Motion.div>
         </div>
       </section>
 
-      {/* OpenDPD 2.4.1 */}
+      {/* OpenDPD 2.4.2 */}
       <section id="whats-new" className="py-24 px-6 bg-slate-900/50">
         <div className="container mx-auto max-w-6xl">
           <Motion.div
@@ -99,12 +99,12 @@ function App() {
             <div className="flex items-center justify-center gap-3 mb-4">
               <span className="text-xs font-semibold tracking-wider uppercase bg-gradient-to-r from-blue-500 to-purple-500 text-white px-3 py-1 rounded-full">New Release</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">OpenDPD 2.4.1: Standard 5G NR test models</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">OpenDPD 2.4.2: A leaner hosted Studio</h2>
             <p className="text-slate-400 text-center mb-12 max-w-2xl mx-auto">
-              Choose from 11 NR FR1 test models defined in 3GPP TS 38.141-1. Set carrier bandwidth, subcarrier spacing and duplex mode, then inspect the resolved parameters, waveform and spectrum in Studio.
+              Hosted Studio uses less server memory while keeping its waveform analysis and training capabilities. Choose from 11 NR FR1 test models defined in 3GPP TS 38.141-1, then inspect the resolved parameters, waveform and spectrum.
             </p>
             <p className="text-center mb-12">
-              <a href="https://lab-emi.github.io/OpenDPD/releases/2.4.1/" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline underline-offset-4">Release notes, validation evidence and known limits</a>
+              <a href="https://lab-emi.github.io/OpenDPD/releases/2.4.2/" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline underline-offset-4">Release notes, validation evidence and known limits</a>
             </p>
           </Motion.div>
 
